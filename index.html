@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your First Step with AI — Free Guide by Raya</title>
+  <meta name="description" content="A friendly, no-jargon guide for anyone who's been meaning to try AI but keeps putting it off. Get your free copy instantly." />
+  <meta property="og:title" content="Your First Step with AI — Free Guide" />
+  <meta property="og:description" content="No jargon. No overwhelm. Just a friendly guide to get you started with AI today." />
+  <meta property="og:image" content="https://firststepatai.co/preview.png" />
+  <meta property="og:url" content="https://firststepatai.co" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://firststepatai.co/preview.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --purple: #6B4EFF; --purple-dark: #4A32CC;
+      --purple-light: #F0ECFF; --purple-mid: #EDE8FF;
+      --cream: #FFFDF7; --dark: #1A1A2E; --gray: #6B7280;
+      --green: #00C896; --yellow: #FFD166;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(107,78,255,0.96); backdrop-filter: blur(12px);
+      padding: 14px 32px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: white; }
+    .nav-cta {
+      background: var(--yellow); color: var(--dark);
+      font-size: 13px; font-weight: 700; padding: 8px 20px;
+      border-radius: 100px; border: none; cursor: pointer;
+      text-decoration: none; transition: transform 0.15s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      background: var(--purple); padding: 160px 24px 110px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; width: 700px; height: 700px;
+      border-radius: 50%; background: rgba(255,255,255,0.04);
+      top: -280px; right: -180px;
+    }
+    .hero::after {
+      content: ''; position: absolute; width: 400px; height: 400px;
+      border-radius: 50%; background: rgba(255,255,255,0.04);
+      bottom: -100px; left: -100px;
+    }
+    .hero-eyebrow {
+      display: inline-block; background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25); color: white;
+      font-size: 13px; font-weight: 600; padding: 7px 18px;
+      border-radius: 100px; margin-bottom: 28px;
+      animation: fadeDown 0.5s ease both;
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(44px, 8vw, 84px); font-weight: 900;
+      color: white; line-height: 1.05; max-width: 820px;
+      margin: 0 auto 24px; animation: fadeDown 0.5s 0.1s ease both;
+    }
+    .hero h1 em { font-style: italic; color: var(--yellow); }
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 21px); color: rgba(255,255,255,0.8);
+      max-width: 580px; margin: 0 auto 40px; line-height: 1.7;
+      animation: fadeDown 0.5s 0.2s ease both;
+    }
+    .scroll-hint {
+      color: rgba(255,255,255,0.55); font-size: 14px; cursor: pointer;
+      animation: fadeDown 0.5s 0.35s ease both;
+    }
+    .scroll-hint span { display: block; font-size: 22px; margin-top: 6px; animation: bounce 1.8s ease infinite; }
+
+    /* FEEL STRIP */
+    .feel-strip {
+      background: var(--dark); padding: 18px 24px;
+      text-align: center; color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.6;
+    }
+    .feel-strip strong { color: var(--yellow); }
+
+    /* RELATE */
+    .relate { padding: 80px 24px; max-width: 920px; margin: 0 auto; text-align: center; }
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--purple); margin-bottom: 14px;
+    }
+    .relate h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(30px, 5vw, 50px); font-weight: 900;
+      line-height: 1.15; margin-bottom: 20px;
+    }
+    .relate > p {
+      font-size: 18px; color: var(--gray);
+      max-width: 600px; margin: 0 auto 48px; line-height: 1.75;
+    }
+    .feelings-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; text-align: left;
+    }
+    .feeling-card {
+      background: white; border-radius: 18px; padding: 24px 20px;
+      border: 2px solid #F3F4F6; transition: border-color 0.2s, transform 0.2s;
+    }
+    .feeling-card:hover { border-color: var(--purple-light); transform: translateY(-2px); }
+    .feeling-card .f-emoji { font-size: 28px; margin-bottom: 10px; display: block; }
+    .feeling-card p { font-size: 14px; color: var(--dark); line-height: 1.6; }
+
+    /* INSIDE */
+    .inside { background: var(--purple-mid); padding: 80px 24px; }
+    .inside-inner { max-width: 1000px; margin: 0 auto; }
+    .inside h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(30px, 5vw, 48px); font-weight: 900;
+      line-height: 1.15; margin-bottom: 12px;
+    }
+    .inside > .inside-inner > p {
+      font-size: 18px; color: var(--gray);
+      max-width: 560px; line-height: 1.65; margin-bottom: 48px;
+    }
+    .chapters-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;
+    }
+    .chapter-card {
+      background: white; border-radius: 20px; padding: 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .chapter-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(107,78,255,0.1); }
+    .chapter-emoji { font-size: 30px; margin-bottom: 12px; display: block; }
+    .chapter-card h3 { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .chapter-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    /* ABOUT */
+    .about { padding: 80px 24px; max-width: 700px; margin: 0 auto; text-align: center; }
+    .raya-bubble {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: var(--purple); display: flex; align-items: center;
+      justify-content: center; font-size: 40px; margin: 0 auto 28px;
+      box-shadow: 0 8px 28px rgba(107,78,255,0.3);
+    }
+    .about h2 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 700; margin-bottom: 20px; }
+    .about p { font-size: 17px; color: var(--gray); line-height: 1.8; margin-bottom: 14px; }
+    .raya-sign { font-family: 'Fraunces', serif; font-style: italic; font-size: 20px; color: var(--purple); margin-top: 8px; }
+
+    /* SIGNUP */
+    .signup-section {
+      background: var(--purple); padding: 100px 24px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .signup-section::before {
+      content: ''; position: absolute; width: 600px; height: 600px;
+      border-radius: 50%; background: rgba(255,255,255,0.04); top: -250px; right: -150px;
+    }
+    .signup-section::after {
+      content: ''; position: absolute; width: 350px; height: 350px;
+      border-radius: 50%; background: rgba(255,255,255,0.04); bottom: -100px; left: -80px;
+    }
+    .signup-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(32px, 5vw, 56px); font-weight: 900;
+      color: white; line-height: 1.1; margin-bottom: 16px; position: relative;
+    }
+    .signup-section h2 em { font-style: italic; color: var(--yellow); }
+    .signup-sub { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 48px; line-height: 1.6; position: relative; }
+    .signup-box {
+      background: white; border-radius: 24px; padding: 44px 40px;
+      max-width: 480px; width: 100%; margin: 0 auto;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.25); position: relative; z-index: 2;
+    }
+    .signup-box h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .box-sub { font-size: 14px; color: var(--gray); margin-bottom: 28px; line-height: 1.5; }
+    .form-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+    .form-group input {
+      width: 100%; padding: 15px 18px; border: 2px solid #E5E7EB; border-radius: 12px;
+      font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--dark);
+      background: #FAFAFA; outline: none; transition: border-color 0.2s, background 0.2s;
+    }
+    .form-group input:focus { border-color: var(--purple); background: white; }
+    .form-group input::placeholder { color: #9CA3AF; }
+    .btn-primary {
+      width: 100%; padding: 17px; background: var(--purple); color: white;
+      font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700;
+      border: none; border-radius: 12px; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(107,78,255,0.4);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(107,78,255,0.45); }
+    .form-note { text-align: center; font-size: 12px; color: var(--gray); margin-top: 12px; }
+    .form-note span { color: var(--green); font-weight: 600; }
+    .success-state { display: none; text-align: center; padding: 16px 0; }
+    .success-state .big-emoji { font-size: 56px; margin-bottom: 14px; }
+    .success-state h3 { font-family: 'Fraunces', serif; font-size: 24px; margin-bottom: 10px; }
+    .success-state p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+    .success-state a { color: var(--purple); font-weight: 600; }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: rgba(255,255,255,0.45); text-align: center; padding: 32px 24px; font-size: 13px; }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: white; }
+
+    /* ANIMATIONS */
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-18px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(8px); } }
+    .fade-in { opacity:0; transform:translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    @media (max-width: 600px) {
+      nav { padding: 12px 16px; }
+      .signup-box { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">✨ First Step AI</div>
+  <a class="nav-cta" href="#signup">Get it free →</a>
+</nav>
+
+<!-- HERO: Hook, no form -->
+<section class="hero">
+  <div class="hero-eyebrow">🤖 Free guide — no catch</div>
+  <h1>Everyone's talking<br/>about AI.<br/><em>You keep nodding.</em></h1>
+  <p class="hero-sub">You're not alone. Millions of people feel exactly the same way — curious, a little behind, and not sure where to start. This guide is for you.</p>
+  <div class="scroll-hint" onclick="document.getElementById('relate').scrollIntoView({behavior:'smooth'})">
+    Spoiler: it's way simpler than you think
+    <span>↓</span>
+  </div>
+</section>
+
+<div class="feel-strip">
+  Written for <strong>real people</strong> — not tech experts, not developers. Anyone who's ready to take their first step. 🙌
+</div>
+
+<!-- RELATE -->
+<section class="relate fade-in" id="relate">
+  <div class="section-label">Sound familiar?</div>
+  <h2>You've been meaning to<br/>try AI for months.</h2>
+  <p>But something always gets in the way. It feels complicated. Or like it's for someone smarter. Or you just don't know where to begin. Ring a bell?</p>
+  <div class="feelings-grid">
+    <div class="feeling-card">
+      <span class="f-emoji">😅</span>
+      <p>Everyone around you uses ChatGPT and you're nodding along like you know what it is</p>
+    </div>
+    <div class="feeling-card">
+      <span class="f-emoji">⏰</span>
+      <p>You've had tabs open about AI for three months and closed them all without reading any</p>
+    </div>
+    <div class="feeling-card">
+      <span class="f-emoji">😟</span>
+      <p>You're worried it's too technical or complicated for someone like you</p>
+    </div>
+    <div class="feeling-card">
+      <span class="f-emoji">🤯</span>
+      <p>You tried it once, got a weird answer, and quietly decided it probably wasn't your thing</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE -->
+<section class="inside fade-in">
+  <div class="inside-inner">
+    <div class="section-label">What's inside the free guide</div>
+    <h2>Six chapters.<br/>Zero confusion.</h2>
+    <p>Everything you need to go from "I keep meaning to try this" to actually using AI today.</p>
+    <div class="chapters-grid">
+      <div class="chapter-card">
+        <span class="chapter-emoji">🤔</span>
+        <h3>What Even IS AI?</h3>
+        <p>Plain English. No buzzwords. You'll finally get it — and wonder why nobody explained it like this before.</p>
+      </div>
+      <div class="chapter-card">
+        <span class="chapter-emoji">🚀</span>
+        <h3>5 Things AI Can Do For You This Week</h3>
+        <p>Starting with that email you've been putting off. Real uses. Not theoretical ones.</p>
+      </div>
+      <div class="chapter-card">
+        <span class="chapter-emoji">💬</span>
+        <h3>Your First Conversation with ChatGPT</h3>
+        <p>Step by step. Hand-held. No assumptions about what you already know.</p>
+      </div>
+      <div class="chapter-card">
+        <span class="chapter-emoji">🌟</span>
+        <h3>AI for Your Everyday Life</h3>
+        <p>At home, at work, for fun. Dozens of ideas you'll actually want to try.</p>
+      </div>
+      <div class="chapter-card">
+        <span class="chapter-emoji">⚠️</span>
+        <h3>Things AI Gets Wrong</h3>
+        <p>So you don't get caught out. Know the limits and you'll always stay one step ahead.</p>
+      </div>
+      <div class="chapter-card">
+        <span class="chapter-emoji">🎯</span>
+        <h3>What's Next</h3>
+        <p>How to keep going without getting overwhelmed. Simple, sustainable, actually enjoyable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT RAYA -->
+<section class="about fade-in">
+  <div class="raya-bubble">👋</div>
+  <h2>Hi, I'm Raya.</h2>
+  <p>I wrote this guide because I kept meeting brilliant people who felt completely left behind by AI. Smart people. Capable people. People who just hadn't had anyone explain it to them properly.</p>
+  <p>This is that explanation. Friendly, honest, zero jargon — and genuinely useful from page one.</p>
+  <p>It's free because I want as many people as possible to take their first step. The world is better when more people feel confident with technology — not intimidated by it.</p>
+  <div class="raya-sign">— Raya 🤝</div>
+</section>
+
+<!-- SIGNUP: Now they want it -->
+<section class="signup-section" id="signup">
+  <h2>Ready for your<br/><em>first step?</em> 🤖</h2>
+  <p class="signup-sub">It's free. It's friendly. It lands in your inbox in under a minute.</p>
+
+  <div class="signup-box">
+    <div id="form-state">
+      <h3>Get your free guide 👇</h3>
+      <p class="box-sub">Enter your name and email — that's it. No credit card, no catch.</p>
+      <div class="form-group">
+        <input type="text" id="fname" placeholder="Your first name" autocomplete="given-name" />
+        <input type="email" id="femail" placeholder="Your email address" autocomplete="email" />
+      </div>
+      <button class="btn-primary" onclick="handleSignup()">Send me the free guide ✨</button>
+      <p class="form-note"><span>✓ Completely free.</span> No spam. Unsubscribe any time.</p>
+    </div>
+    <div class="success-state" id="success-state">
+      <div class="big-emoji">🎉</div>
+      <h3>It's on its way!</h3>
+      <p>Check your inbox — your free guide is heading to you right now.<br/><br/>
+      Can't wait? <a href="https://mcusercontent.com/9999fac6e10bb5b6a9b519a28/files/58b120a5-c12c-d7ed-1d9b-2170dc49efb8/Your_First_Step_With_AI.pdf" target="_blank">Download it directly here →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 First Step AI &nbsp;·&nbsp; <a href="mailto:hello@firststepatai.co">hello@firststepatai.co</a> &nbsp;·&nbsp; Made with ❤️ by Raya</p>
+</footer>
+
+<script>
+  async function submitToBrevo(firstName, email) {
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ firstName, email })
+      });
+      return res.ok;
+    } catch(e) { return false; }
+  }
+
+  async function handleSignup() {
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    if (!fname) { alert('Please enter your first name!'); return; }
+    if (!email || !email.includes('@')) { alert('Please enter a valid email!'); return; }
+    const btn = document.querySelector('.btn-primary');
+    btn.textContent = 'Sending... ✨'; btn.disabled = true;
+    await submitToBrevo(fname, email);
+    document.getElementById('form-state').style.display = 'none';
+    document.getElementById('success-state').style.display = 'block';
+  }
+
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
