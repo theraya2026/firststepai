@@ -216,6 +216,136 @@
       nav { padding: 12px 16px; }
       .signup-box { padding: 28px 20px; }
     }
+
+    /* ===== CHAT WIDGET (Talk to Raya) ===== */
+    .raya-launcher {
+      position: fixed; bottom: 24px; right: 24px; z-index: 200;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--purple); color: white; border: none; cursor: pointer;
+      box-shadow: 0 8px 24px rgba(107,78,255,0.45);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .raya-launcher:hover { transform: scale(1.06); box-shadow: 0 10px 28px rgba(107,78,255,0.55); }
+    .raya-launcher .raya-badge {
+      position: absolute; top: -6px; right: -6px;
+      background: var(--yellow); color: var(--dark);
+      font-size: 11px; font-weight: 600; padding: 2px 8px;
+      border-radius: 10px; font-family: 'DM Sans', sans-serif;
+      white-space: nowrap;
+    }
+
+    .raya-panel {
+      position: fixed; bottom: 24px; right: 24px; z-index: 201;
+      width: 380px; height: 580px; max-height: calc(100vh - 48px);
+      background: var(--cream); border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(26,26,46,0.25);
+      display: none; flex-direction: column; overflow: hidden;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .raya-panel.open { display: flex; }
+    .raya-header {
+      background: var(--purple); color: white;
+      padding: 16px 18px; display: flex; align-items: center; gap: 12px;
+    }
+    .raya-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--purple-light); color: var(--purple);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 18px;
+    }
+    .raya-header-info { flex: 1; }
+    .raya-header-info .name { font-weight: 600; font-size: 16px; }
+    .raya-header-info .status { font-size: 12px; opacity: 0.85; display: flex; align-items: center; gap: 6px; }
+    .raya-header-info .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; }
+    .raya-close {
+      background: transparent; border: none; color: white; font-size: 22px;
+      cursor: pointer; padding: 0 4px; opacity: 0.8;
+    }
+    .raya-close:hover { opacity: 1; }
+
+    .raya-messages {
+      flex: 1; overflow-y: auto; padding: 18px 16px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .raya-msg {
+      max-width: 82%; padding: 10px 14px; border-radius: 16px;
+      font-size: 14.5px; line-height: 1.45; word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+    .raya-msg.raya {
+      background: var(--purple-mid); color: var(--dark);
+      align-self: flex-start; border-bottom-left-radius: 4px;
+    }
+    .raya-msg.user {
+      background: var(--purple); color: white;
+      align-self: flex-end; border-bottom-right-radius: 4px;
+    }
+    .raya-typing {
+      align-self: flex-start; background: var(--purple-mid);
+      padding: 12px 16px; border-radius: 16px; border-bottom-left-radius: 4px;
+      display: inline-flex; gap: 4px;
+    }
+    .raya-typing span {
+      width: 7px; height: 7px; background: var(--purple); border-radius: 50%;
+      animation: raya-bounce 1.2s infinite ease-in-out;
+    }
+    .raya-typing span:nth-child(2) { animation-delay: 0.15s; }
+    .raya-typing span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes raya-bounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.55; }
+      30% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    .raya-signup-inline {
+      background: var(--purple-light); border: 1px solid var(--purple-mid);
+      border-radius: 14px; padding: 14px; margin-top: 4px;
+      align-self: stretch;
+    }
+    .raya-signup-inline h4 { font-size: 14px; margin-bottom: 8px; color: var(--dark); }
+    .raya-signup-inline input {
+      width: 100%; padding: 9px 12px; border: 1px solid #ddd;
+      border-radius: 8px; font-size: 14px; margin-bottom: 6px;
+      font-family: inherit; background: white;
+    }
+    .raya-signup-inline button {
+      width: 100%; padding: 10px; background: var(--purple); color: white;
+      border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+      font-size: 14px; margin-top: 4px;
+    }
+    .raya-signup-inline button:hover { background: var(--purple-dark); }
+    .raya-signup-inline .raya-thanks { font-size: 13.5px; color: var(--dark); text-align: center; padding: 6px; }
+
+    .raya-input-row {
+      border-top: 1px solid #ececec; padding: 12px 14px;
+      display: flex; gap: 8px; background: white;
+    }
+    .raya-input-row textarea {
+      flex: 1; border: 1px solid #e4e4e4; border-radius: 14px;
+      padding: 10px 14px; font-size: 14.5px; resize: none;
+      font-family: inherit; line-height: 1.4; max-height: 100px;
+      outline: none; transition: border-color 0.15s;
+    }
+    .raya-input-row textarea:focus { border-color: var(--purple); }
+    .raya-input-row button {
+      background: var(--purple); color: white; border: none;
+      border-radius: 14px; padding: 0 18px; font-weight: 600;
+      cursor: pointer; font-size: 14px;
+    }
+    .raya-input-row button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .raya-footnote {
+      font-size: 10.5px; color: var(--gray); text-align: center;
+      padding: 0 0 8px; background: white;
+    }
+
+    @media (max-width: 640px) {
+      .raya-panel {
+        bottom: 0; right: 0; left: 0;
+        width: 100%; height: 100%; max-height: 100%;
+        border-radius: 0;
+      }
+      .raya-launcher { bottom: 16px; right: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -345,6 +475,28 @@
   <p>© 2026 First Step AI &nbsp;·&nbsp; <a href="mailto:hello@firststepai.co">hello@firststepai.co</a> &nbsp;·&nbsp; Made with ❤️ by Raya</p>
 </footer>
 
+<!-- ===== Talk to Raya: chat widget ===== -->
+<button class="raya-launcher" id="rayaLauncher" aria-label="Chat with Raya">
+  💬<span class="raya-badge">Chat with Raya</span>
+</button>
+
+<div class="raya-panel" id="rayaPanel" role="dialog" aria-label="Chat with Raya">
+  <div class="raya-header">
+    <div class="raya-avatar">R</div>
+    <div class="raya-header-info">
+      <div class="name">Raya</div>
+      <div class="status"><span class="dot"></span> here to help · AI assistant</div>
+    </div>
+    <button class="raya-close" id="rayaClose" aria-label="Close chat">×</button>
+  </div>
+  <div class="raya-messages" id="rayaMessages"></div>
+  <div class="raya-input-row">
+    <textarea id="rayaInput" placeholder="Ask Raya anything..." rows="1"></textarea>
+    <button id="rayaSend">Send</button>
+  </div>
+  <div class="raya-footnote">Powered by AI. Conversations may be reviewed to improve service.</div>
+</div>
+
 <script>
   async function submitToBrevo(firstName, email) {
     try {
@@ -374,6 +526,156 @@
     { threshold: 0.08 }
   );
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  /* ===== Talk to Raya ===== */
+  (function() {
+    const STORAGE_KEY = 'raya_chat_v1';
+    const WELCOME = "hey, i'm Raya 👋 i help out around here. ask me anything about AI — what to try first, where to start, how it actually works in real life. no question is too small.";
+
+    const launcher = document.getElementById('rayaLauncher');
+    const panel = document.getElementById('rayaPanel');
+    const closeBtn = document.getElementById('rayaClose');
+    const messagesEl = document.getElementById('rayaMessages');
+    const input = document.getElementById('rayaInput');
+    const sendBtn = document.getElementById('rayaSend');
+
+    let history = [];
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) history = JSON.parse(saved);
+    } catch(e) { history = []; }
+
+    function save() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(history)); } catch(e) {}
+    }
+
+    function render() {
+      messagesEl.innerHTML = '';
+      if (history.length === 0) {
+        appendBubble('raya', WELCOME);
+      } else {
+        history.forEach(m => appendBubble(m.role === 'assistant' ? 'raya' : 'user', m.content));
+      }
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function appendBubble(who, text) {
+      const div = document.createElement('div');
+      div.className = 'raya-msg ' + who;
+      div.textContent = text;
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      return div;
+    }
+
+    function showTyping() {
+      const t = document.createElement('div');
+      t.className = 'raya-typing';
+      t.id = 'rayaTyping';
+      t.innerHTML = '<span></span><span></span><span></span>';
+      messagesEl.appendChild(t);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+    function hideTyping() {
+      const t = document.getElementById('rayaTyping');
+      if (t) t.remove();
+    }
+
+    function showInlineSignup() {
+      const box = document.createElement('div');
+      box.className = 'raya-signup-inline';
+      box.innerHTML = `
+        <h4>cool — where should i send it?</h4>
+        <input type="text" id="rayaFname" placeholder="your first name" autocomplete="given-name" />
+        <input type="email" id="rayaEmail" placeholder="your email" autocomplete="email" />
+        <button id="rayaSignupBtn">send me the guide</button>
+      `;
+      messagesEl.appendChild(box);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      document.getElementById('rayaSignupBtn').addEventListener('click', async () => {
+        const fname = document.getElementById('rayaFname').value.trim();
+        const email = document.getElementById('rayaEmail').value.trim();
+        if (!fname || !email || !email.includes('@')) {
+          alert('need your name and a real email!');
+          return;
+        }
+        document.getElementById('rayaSignupBtn').disabled = true;
+        document.getElementById('rayaSignupBtn').textContent = 'sending...';
+        const ok = await submitToBrevo(fname, email);
+        box.innerHTML = ok
+          ? '<div class="raya-thanks">🎉 sent! check your inbox in a sec.</div>'
+          : '<div class="raya-thanks">hmm, didn\'t go through. try the form lower on the page?</div>';
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      });
+    }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      input.style.height = 'auto';
+      sendBtn.disabled = true;
+
+      history.push({ role: 'user', content: text });
+      appendBubble('user', text);
+      save();
+      showTyping();
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ messages: history })
+        });
+        hideTyping();
+        if (res.status === 429) {
+          const data = await res.json();
+          appendBubble('raya', data.message || "let's pick this up tomorrow?");
+        } else if (!res.ok) {
+          appendBubble('raya', "oof, my brain glitched. try that one more time?");
+        } else {
+          const data = await res.json();
+          const reply = data.reply || "...";
+          history.push({ role: 'assistant', content: reply });
+          appendBubble('raya', reply);
+          save();
+          if (data.offerSignup) showInlineSignup();
+        }
+      } catch(e) {
+        hideTyping();
+        appendBubble('raya', "looks like the connection dropped. mind trying again?");
+      } finally {
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    }
+
+    function openPanel() {
+      panel.classList.add('open');
+      launcher.style.display = 'none';
+      render();
+      setTimeout(() => input.focus(), 100);
+    }
+    function closePanel() {
+      panel.classList.remove('open');
+      launcher.style.display = 'flex';
+    }
+
+    launcher.addEventListener('click', openPanel);
+    closeBtn.addEventListener('click', closePanel);
+
+    input.addEventListener('input', () => {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 100) + 'px';
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+    sendBtn.addEventListener('click', sendMessage);
+  })();
 </script>
 </body>
 </html>
